@@ -1,4 +1,4 @@
-.dropdown-content {
+.dropdown .dialog-content {
     border: solid 2px #190c2f;
     padding: 20px;
 }
@@ -15,7 +15,7 @@
     justify-content: center;
 }
 
-.modal-content {
+.modal .dialog-content {
     max-width: 60%;
     width: 500px;
     background: white;
@@ -26,11 +26,11 @@
     text-align: left;
 }
 
-.modal-content h2 {
+.modal .dialog-content h2 {
     font-size: 20px;
 }
 
-.modal-content ul {
+.modal .dialog-content ul {
     padding: 0 20px;
     list-style: disc !important;
 }

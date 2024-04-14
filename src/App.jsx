@@ -5,13 +5,8 @@ import { FaGithub } from "react-icons/fa6";
 import { FaInstagram } from "react-icons/fa6";
 import { FaLinkedinIn } from "react-icons/fa6";
 
+import { Dialog, Trigger, Content } from "./components/Dialog";
 import "./components/Dialog.css";
-import {
-    Dropdown,
-    DropdownContent,
-    DropdownTrigger,
-} from "./components/Dropdown";
-import { Modal, ModalTrigger, ModalContent } from "./components/Modal";
 
 import { coollist, profile, abobrinha } from "../info";
 
@@ -21,41 +16,26 @@ export function App() {
             <Header />
             <LinkList>
                 {coollist.map((link, i) => {
-                    switch (link.type) {
-                        case "dropdown":
-                            return (
-                                <Dropdown key={i}>
-                                    <DropdownTrigger>
-                                        <LinkButton
-                                            href={link.link}
-                                            children={link.title}
-                                        />
-                                    </DropdownTrigger>
-                                    <DropdownContent>
-                                        {link.content}
-                                    </DropdownContent>
-                                </Dropdown>
-                            );
-                        case "modal":
-                            return (
-                                <Modal key={i}>
-                                    <ModalTrigger>
-                                        <LinkButton
-                                            href={link.link}
-                                            children={link.title}
-                                        />
-                                    </ModalTrigger>
-                                    <ModalContent>{link.content}</ModalContent>
-                                </Modal>
-                            );
-                        default:
-                            return (
-                                <LinkButton
-                                    key={i}
-                                    href={link.link}
-                                    children={link.title}
-                                />
-                            );
+                    if (link.type) {
+                        return (
+                            <Dialog type={link.type} key={i}>
+                                <Trigger>
+                                    <LinkButton
+                                        href={link.link}
+                                        children={link.title}
+                                    />
+                                </Trigger>
+                                <Content>{link.content}</Content>
+                            </Dialog>
+                        );
+                    } else {
+                        return (
+                            <LinkButton
+                                key={i}
+                                href={link.link}
+                                children={link.title}
+                            />
+                        );
                     }
                 })}
             </LinkList>
@@ -72,12 +52,14 @@ export function App() {
             </LinkList>
             <footer>
                 Feito com ❤️ por{" "}
-                <Modal>
-                    <ModalTrigger>
-                        <a href="#">@{profile.usernames.join("@")}</a>
-                    </ModalTrigger>
-                    <ModalContent>{abobrinha}</ModalContent>
-                </Modal>
+                {
+                    <Dialog type="modal">
+                        <Trigger>
+                            <a href="#">@{profile.usernames.join("@")}</a>
+                        </Trigger>
+                        <Content>{abobrinha}</Content>
+                    </Dialog>
+                }
             </footer>
         </>
     );
