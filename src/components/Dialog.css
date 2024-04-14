@@ -1,6 +1,7 @@
 .dropdown .dialog-content {
-    border: solid 2px #190c2f;
+    border: solid 4px #190c2f;
     padding: 20px;
+    
 }
 
 .blackscreen {
@@ -24,6 +25,7 @@
     max-height: 80%;
     height: auto;
     text-align: left;
+    box-shadow: 16px 16px 0 0 #190c2f;
 }
 
 .modal .dialog-content h2 {

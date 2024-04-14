@@ -17,13 +17,16 @@
     max-width: 400px;
     padding: 11px;
     margin: 20px auto;
-    transition-duration: 400ms;
     text-align: center;
+    box-shadow: 6px 8px 0px 0px #191c2f;
+    transition: transform ease 0.5s, box-shadow ease 0.5s;
 }
 
 .coollist-buttons li a:hover {
     color: white;
     background: #191c2f;
+    transform: translateY(-6px);
+    box-shadow: none;
 }
 
 .coollist-buttons li {
