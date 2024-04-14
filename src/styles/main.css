@@ -1,0 +1,24 @@
+#main {
+    font-family: "Open Sans", sans-serif;
+}
+
+#main {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+footer {
+    text-align: center;
+    padding: 25px 0;
+}
+
+footer a {
+    text-decoration: underline;
+}
+
+footer .modal,
+footer .modal-open {
+    display: inline;
+}

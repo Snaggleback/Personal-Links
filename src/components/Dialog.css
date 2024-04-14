@@ -1,0 +1,36 @@
+.dropdown-content {
+    border: solid 2px #190c2f;
+    padding: 20px;
+}
+
+.blackscreen {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    right: 0;
+    background: #0000003b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    max-width: 60%;
+    width: 500px;
+    background: white;
+    padding: 40px;
+    border: solid 2px #190c2f;
+    max-height: 80%;
+    height: auto;
+    text-align: left;
+}
+
+.modal-content h2 {
+    font-size: 20px;
+}
+
+.modal-content ul {
+    padding: 0 20px;
+    list-style: disc !important;
+}

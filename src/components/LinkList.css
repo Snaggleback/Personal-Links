@@ -1,0 +1,48 @@
+#coollist {
+    max-width: 400px;
+    width: 100%;
+}
+
+.coollist-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto 40px;
+}
+
+.coollist-buttons li a {
+    display: block;
+    border: solid 2px #191c2f;
+    width: auto;
+    max-width: 400px;
+    padding: 11px;
+    margin: 20px auto;
+    transition-duration: 400ms;
+    text-align: center;
+}
+
+.coollist-buttons li a:hover {
+    color: white;
+    background: #191c2f;
+}
+
+.coollist-buttons li {
+    width: 100%;
+}
+
+.medialist-buttons {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#medialist {
+    max-width: 100%;
+    width: 400px;
+    margin: 40px auto;
+    color: #1a1d30;
+}
+
+.medialist-buttons li a svg {
+    width: 26px;
+    height: 26px;
+}

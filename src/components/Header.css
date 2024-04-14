@@ -1,0 +1,12 @@
+header {
+    max-width: 800px;
+    padding: 40px 40px 0;
+}
+
+.profile {
+    text-align: center;
+}
+
+.desc {
+    font-style: italic;
+}
