@@ -8,30 +8,31 @@ export const profile = {
 
 export const coollist = [
     {
-        title: "Meus projetos e portfólio",
+        title: "Projetos pessoais, currículo e portfólio",
         link: "https://github.com/Snaggleback",
-    },
-    {
-        title: "Postagens e artigos diversos",
-        type: "dropdown",
-        content: (
-            <>
-                <h2>Opa, olá! :]</h2>
-                <p>
-                    Infelizmente ainda não há nenhuma postagem ou artigo
-                    relevante publicado, mas espere que em breve irá ter!
-                </p>
-            </>
-        ),
-        link: "#",
     },
     {
         title: "Conheças meus repositórios no GitHub",
         link: "https://github.com/Snaggleback?tab=repositories",
     },
     {
-        title: 'Conheça o repositório "Tutorials"',
-        link: "https://github.com/Snaggleback/Tutorials",
+        title: "Repositórios utilizados para estudo",
+        type: "dropdown",
+        link: "#",
+        content: (
+            <>
+                <h2>Sobre:</h2>
+                <p>
+                    Repositórios Utilizados para Estudo e Aquisição de
+                    Conhecimento em Tecnologia (em Geral)
+                </p>
+                <p>
+                    <a href="https://github.com/stars/Snaggleback/lists/educa%C3%A7%C3%A3o">
+                        Acesse a lista
+                    </a>
+                </p>
+            </>
+        ),
     },
     {
         title: "Quem sou eu?",
@@ -68,6 +69,17 @@ export const coollist = [
                         site na deep web aos 13 anos. Coisa de criança, quem
                         nunca? :)
                     </li>
+                    <p>
+                        <br />
+                        Acesse meu{" "}
+                        <a href="https://github.com/Snaggleback/">
+                            GitHub
+                        </a> ou{" "}
+                        <a href="https://www.linkedin.com/in/snaggleback/">
+                            LinkedIn
+                        </a>{" "}
+                        para saber mais sobre mim :)
+                    </p>
                 </ul>
             </>
         ),
