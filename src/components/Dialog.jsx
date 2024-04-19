@@ -54,7 +54,17 @@ function BlackScreen(props) {
     // Funcionalidade de fechar o blackscreen
     function hideBlackScreen(event) {
         if (event.target.classList.contains("blackscreen")) {
-            event.target.classList.add("hidden");
+            // Conteúdo do modal
+            const modalContent = event.target.querySelector(".dialog-content");
+            // Setando a animação de fechamento do modal
+            modalContent.classList.add("modal-close-animation");
+            // Esperando alguns milisegundos para que a animação seja executada
+            setTimeout(() => {
+                // Adicionando a classe hidden
+                event.target.classList.add("hidden");
+                // Removendo a classe de animação
+                modalContent.classList.remove("modal-close-animation");
+            }, 500);
         }
     }
 

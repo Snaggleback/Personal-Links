@@ -4,6 +4,7 @@ import { LinkList, LinkButton } from "./components/LinkList";
 import { FaGithub } from "react-icons/fa6";
 import { FaInstagram } from "react-icons/fa6";
 import { FaLinkedinIn } from "react-icons/fa6";
+import { FaMastodon } from "react-icons/fa6";
 
 import { Dialog, Trigger, Content } from "./components/Dialog";
 import "./components/Dialog.css";
@@ -45,6 +46,9 @@ export function App() {
                 </LinkButton>
                 <LinkButton href="https://github.com/Snaggleback/">
                     <FaGithub />
+                </LinkButton>
+                <LinkButton href="https://mastodon.social/@Snaggleback">
+                    <FaMastodon />
                 </LinkButton>
                 <LinkButton href="https://www.linkedin.com/in/snaggleback/">
                     <FaLinkedinIn />
