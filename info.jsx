@@ -35,6 +35,39 @@ export const coollist = [
         ),
     },
     {
+        title: "Expanda seu CONHECIMENTO",
+        type: "modal",
+        link: "#",
+        content: (
+            <>
+                <h2>PlayList de estudos 🗿🧃</h2>
+                <p>
+                    Aprimore seu conhecimento com esta playlist, praticamente um
+                    canal de TV, que é atualizada diariamente com conteúdo sobre
+                    desenvolvimento, programação e tecnologia em geral.
+                </p>
+                <br />
+                <p>
+                    <iframe
+                        style={{ width: 560, height: 315, maxWidth: "100%" }}
+                        src="https://www.youtube.com/embed/videoseries?si=Ltya4roiLfWMd40g&amp;list=PLG77rut17t6wTxjhhb-iF_5dRdqGt9ZT8"
+                        title="Expanda seu CONHECIMENTO 📖"
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope"
+                        referrerPolicy="strict-origin-when-cross-origin"
+                        allowFullScreen
+                    ></iframe>
+                </p>
+                <br />
+                <p>
+                    <a href="https://www.youtube.com/playlist?list=PLG77rut17t6wTxjhhb-iF_5dRdqGt9ZT8">
+                        Acesse no YouTube
+                    </a>
+                </p>
+            </>
+        ),
+    },
+    {
         title: "Quem sou eu?",
         link: "#",
         type: "modal",
@@ -86,16 +119,12 @@ export const coollist = [
     },
 ];
 
-export const abobrinha = (
+export const footerAtr = (
     <>
         <h2>Eu que fiz!</h2>
         <p>
             Sim HAHAHAHHA Este site foi feito por mim (Ítalo), desenvolvido para
-            testar meus conhecimentos com HTML, CSS e JAVASCRIPT
-        </p>
-        <p>
-            Você pode ter uma bio personalizada que nem eu, basta acessar meu
-            repositório, seguir o guia e personalizar ao seu gosto! :)
+            testar meus conhecimentos com HTML, CSS e JAVASCRIPT (com React.js)
         </p>
     </>
 );

@@ -9,7 +9,7 @@ import { FaMastodon } from "react-icons/fa6";
 import { Dialog, Trigger, Content } from "./components/Dialog";
 import "./components/Dialog.css";
 
-import { coollist, profile, abobrinha } from "../info";
+import { coollist, profile, footerAtr } from "../info";
 
 export function App() {
     return (
@@ -61,7 +61,7 @@ export function App() {
                         <Trigger>
                             <a href="#">@{profile.usernames.join("@")}</a>
                         </Trigger>
-                        <Content>{abobrinha}</Content>
+                        <Content>{footerAtr}</Content>
                     </Dialog>
                 }
             </footer>
