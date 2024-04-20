@@ -1,6 +1,15 @@
 .dropdown .dialog-content {
     border: solid 4px #190c2f;
     padding: 20px;
+    /* Animação para abrir o dropdown */
+    animation: scroll-down 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    /* Animação para fechar o dropdown */
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.dropdown-close-animation {
+    /* Animação para fechar o dropdown */
+    transform: scale(0);
 }
 
 .blackscreen {
@@ -62,5 +71,15 @@
     100% {
         -webkit-transform: scale(1);
         transform: scale(1);
+    }
+}
+
+/* Animação para abrir o dropdown */
+@keyframes scroll-down {
+    0% {
+        transform: translateY(-20%);
+    }
+    100% {
+        transform: translateY(0);
     }
 }

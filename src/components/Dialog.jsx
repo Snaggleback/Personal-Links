@@ -23,6 +23,18 @@ export function Trigger({ type, ...props }) {
             .closest(".dialog")
             .querySelector(classToToggle);
         // Adicionando e removendo a classe
+        if (
+            type === "dropdown" &&
+            dialogContent.classList.contains("hidden") === false
+        ) {
+            console.log(dialogContent.classList.contains("hidden"));
+            dialogContent.classList.add("dropdown-close-animation");
+            setTimeout(() => {
+                dialogContent.classList.remove("dropdown-close-animation");
+                dialogContent.classList.add("hidden");
+            }, 400);
+            return;
+        }
         dialogContent.classList.toggle("hidden");
     }
 
