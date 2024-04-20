@@ -15,27 +15,28 @@ export function Dialog({ type = "dropdown", children }) {
 export function Trigger({ type, ...props }) {
     // Funcionalidade de abrir e fechar o dialog
     function toggleContent(event) {
-        // Classe para fechar o dialog vai depender do tipo
-        const classToToggle =
-            type === "modal" ? ".blackscreen" : `.dialog-content`;
-        // Selecionando o elemento correspondente à classe
-        const dialogContent = event.target
-            .closest(".dialog")
-            .querySelector(classToToggle);
-        // Adicionando e removendo a classe
-        if (
-            type === "dropdown" &&
-            dialogContent.classList.contains("hidden") === false
-        ) {
-            console.log(dialogContent.classList.contains("hidden"));
-            dialogContent.classList.add("dropdown-close-animation");
-            setTimeout(() => {
-                dialogContent.classList.remove("dropdown-close-animation");
-                dialogContent.classList.add("hidden");
-            }, 400);
-            return;
+        if (type === "dropdown") {
+            // Caso seja um DropDown, pega o elemento que deve ser escondido
+            const dialogHide = event.target.closest(".dialog").querySelector(".dialog-content");
+            // Caso o dropdown esteja aberto, fecha-o adicionando a animação
+            if (dialogHide.classList.contains("hidden") === false) {
+                // Adicionando a animação de fechar
+                dialogHide.classList.toggle("dropdown-close-animation");
+                setTimeout(() => {
+                    // Removendo a classe hidden após a animação
+                    dialogHide.classList.toggle("dropdown-close-animation");
+                    dialogHide.classList.toggle("hidden");
+                }, 400);
+                // Retornando sem executar o resto do código
+                return;
+            }
+            // Caso o dropdown esteja fechado, abre-o
+            dialogHide.classList.toggle("hidden");
+        } else {
+            // Caso seja um Modal, pega o elemento que deve ser escondido
+            const dialogHide = event.target.closest(".dialog").querySelector(".blackscreen");
+            dialogHide.classList.toggle("hidden");
         }
-        dialogContent.classList.toggle("hidden");
     }
 
     // Retornando o Trigger com a função de abrir e fechar o dialog
