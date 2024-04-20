@@ -22,3 +22,7 @@ footer .modal,
 footer .modal-open {
     display: inline;
 }
+
+::-webkit-scrollbar {
+    display: none;
+}
