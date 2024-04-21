@@ -3,7 +3,7 @@ import { Header } from "./components/Header";
 import { LinkList, LinkButton } from "./components/LinkList";
 import { FaGithub, FaInstagram, FaLinkedinIn, FaMastodon } from "react-icons/fa6";
 import { Dialog, Trigger, Content } from "./components/Dialog";
-import "./components/Dialog.css";
+import "./styles/Dialog.css";
 import { coollist, profile, footerAtr } from "../info";
 
 export function App() {

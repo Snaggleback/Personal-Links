@@ -1,6 +1,6 @@
 import { profile } from "../../info";
 import profileimage from "../assets/profileimage.png";
-import "./Header.css";
+import "../styles/Header.css";
 
 export function Header() {
     return (

@@ -1,5 +1,5 @@
 import React from "react";
-import "./LinkList.css";
+import "../styles/LinkList.css";
 
 export function LinkList({ medialist, ...props }) {
     const listType = medialist ? "medialist" : "coollist";
