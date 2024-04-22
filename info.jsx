@@ -18,7 +18,6 @@ export const coollist = [
     {
         title: "Repositórios utilizados para estudo",
         type: "dropdown",
-        link: "#",
         content: (
             <>
                 <h2>Sobre:</h2>
@@ -37,7 +36,6 @@ export const coollist = [
     {
         title: "Expanda seu CONHECIMENTO",
         type: "modal",
-        link: "#",
         content: (
             <>
                 <h2>PlayList de estudos 🗿🧃</h2>
@@ -69,7 +67,6 @@ export const coollist = [
     },
     {
         title: "Quem sou eu?",
-        link: "#",
         type: "modal",
         content: (
             <>

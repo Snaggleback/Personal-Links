@@ -1,3 +1,8 @@
+.dialog {
+    all: unset;
+    width: -webkit-fill-available;
+}
+
 .dropdown .dialog-content {
     border: solid 4px #190c2f;
     padding: 20px;

@@ -16,7 +16,6 @@ ol {
     display: none !important;
 }
 
-.modal,
-.dropdown {
-    width: -webkit-fill-available;
+a {
+    cursor: pointer;
 }

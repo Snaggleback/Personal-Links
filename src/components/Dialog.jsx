@@ -1,42 +1,44 @@
 import React from "react";
 
-export function Dialog({ type = "dropdown", children }) {
+export function Dialog({ type, children }) {
     // Adicionando o tipo de dialog aos filhos
     const typedChildren = React.Children.map(children, (child) => {
         return React.cloneElement(child, { type });
     });
 
     // Retornando Dialog e seus filhos com o tipo
-    return (
-        <NullElement className={`dialog ${type}`}>{typedChildren}</NullElement>
-    );
+    return <div className={`dialog ${type}`}>{typedChildren}</div>;
 }
 
 export function Trigger({ type, ...props }) {
     // Funcionalidade de abrir e fechar o dialog
     function toggleContent(event) {
-        if (type === "dropdown") {
-            // Caso seja um DropDown, pega o elemento que deve ser escondido
-            const dialogHide = event.target.closest(".dialog").querySelector(".dialog-content");
-            // Caso o dropdown esteja aberto, fecha-o adicionando a animação
-            if (dialogHide.classList.contains("hidden") === false) {
-                // Adicionando a animação de fechar
-                dialogHide.classList.toggle("dropdown-close-animation");
-                setTimeout(() => {
-                    // Removendo a classe hidden após a animação
-                    dialogHide.classList.toggle("dropdown-close-animation");
-                    dialogHide.classList.toggle("hidden");
-                }, 400);
-                // Retornando sem executar o resto do código
-                return;
-            }
-            // Caso o dropdown esteja fechado, abre-o
-            dialogHide.classList.toggle("hidden");
-        } else {
+        if (type === "modal") {
             // Caso seja um Modal, pega o elemento que deve ser escondido
-            const dialogHide = event.target.closest(".dialog").querySelector(".blackscreen");
+            const dialogHide = event.target
+                .closest(".dialog")
+                .querySelector(".blackscreen");
             dialogHide.classList.toggle("hidden");
+            return;
         }
+        // Caso seja um DropDown, pega o elemento que deve ser escondido
+        const dialogHide = event.target
+            .closest(".dialog")
+            .querySelector(".dialog-content");
+        // Caso o dropdown esteja aberto, fecha-o adicionando a animação
+        if (dialogHide.classList.contains("hidden") === false) {
+            // Adicionando a animação de fechar
+            dialogHide.classList.toggle("dropdown-close-animation");
+            setTimeout(() => {
+                // Removendo a classe hidden após a animação
+                dialogHide.classList.toggle("dropdown-close-animation");
+                dialogHide.classList.toggle("hidden");
+            }, 400);
+            // Retornando sem executar o resto do código
+            return;
+        }
+        // Caso o dropdown esteja fechado, abre-o
+        dialogHide.classList.toggle("hidden");
     }
 
     // Retornando o Trigger com a função de abrir e fechar o dialog
@@ -88,15 +90,5 @@ function BlackScreen(props) {
             onClick={hideBlackScreen}
             {...props}
         />
-    );
-}
-
-function NullElement(props) {
-    // Elemento sem formatação e sem estilo
-    return (
-        <div
-            style={{ all: "unset", width: "-webkit-fill-available" }}
-            {...props}
-        ></div>
     );
 }
