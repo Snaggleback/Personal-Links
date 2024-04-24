@@ -1,12 +1,7 @@
-export const profile = {
-    name: "Ítalo",
-    desc: "Sou um carinha simples e programo por hobbie",
-    imagedesc:
-        "Pixel art de um cachorro salsicha no espaço, com planetas e um foguete de fundo",
-    usernames: ["Snaggleback", "TheSnaggleback"],
-};
+import { BigTitle } from "../../components/BigTitle";
+import { NormalLink } from "../../components/NormalLink";
 
-export const coollist = [
+export default [
     {
         title: "Projetos pessoais, currículo e portfólio",
         link: "https://github.com/Snaggleback",
@@ -26,9 +21,9 @@ export const coollist = [
                     Conhecimento em Tecnologia (em Geral)
                 </p>
                 <p>
-                    <a href="https://github.com/stars/Snaggleback/lists/educa%C3%A7%C3%A3o">
+                    <NormalLink href="https://github.com/stars/Snaggleback/lists/educa%C3%A7%C3%A3o">
                         Acesse a lista
-                    </a>
+                    </NormalLink>
                 </p>
             </>
         ),
@@ -38,29 +33,20 @@ export const coollist = [
         type: "modal",
         content: (
             <>
-                <h2>PlayList de estudos 🗿🧃</h2>
+                <BigTitle>PlayList de estudos 🗿🧃</BigTitle>
                 <p>
                     Aprimore seu conhecimento com esta playlist, praticamente um
                     canal de TV, que é atualizada diariamente com conteúdo sobre
                     desenvolvimento, programação e tecnologia em geral.
                 </p>
                 <br />
-                <p>
-                    <iframe
-                        style={{ width: 560, height: 315, maxWidth: "100%" }}
-                        src="https://www.youtube.com/embed/videoseries?si=Ltya4roiLfWMd40g&amp;list=PLG77rut17t6wTxjhhb-iF_5dRdqGt9ZT8"
-                        title="Expanda seu CONHECIMENTO 📖"
-                        frameBorder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope"
-                        referrerPolicy="strict-origin-when-cross-origin"
-                        allowFullScreen
-                    ></iframe>
-                </p>
+                <p>HEHEH</p>
                 <br />
                 <p>
-                    <a href="https://www.youtube.com/playlist?list=PLG77rut17t6wTxjhhb-iF_5dRdqGt9ZT8">
-                        Acesse no YouTube
-                    </a>
+                    Acesse no{" "}
+                    <NormalLink href="https://www.youtube.com/playlist?list=PLG77rut17t6wTxjhhb-iF_5dRdqGt9ZT8">
+                        YouTube
+                    </NormalLink>
                 </p>
             </>
         ),
@@ -70,12 +56,12 @@ export const coollist = [
         type: "modal",
         content: (
             <>
-                <h2>Opa, eae?</h2>
+                <BigTitle>Opa, eae?</BigTitle>
                 <p>
                     <em>Sou um carinha simples e programo por hobbie</em>
                 </p>
-                <h3>Um pouco sobre mim</h3>
-                <ul>
+                <h3 className="text-sm font-bold py-2">Um pouco sobre mim</h3>
+                <ul className="list-disc px-6">
                     <li>
                         Me chamo Ítalo, muito prazer! Tenho 16 anos e sou um
                         entusiasta da tecnologia desde pequeno, começando aos
@@ -102,12 +88,13 @@ export const coollist = [
                     <p>
                         <br />
                         Acesse meu{" "}
-                        <a href="https://github.com/Snaggleback/">
+                        <NormalLink href="https://github.com/Snaggleback/">
                             GitHub
-                        </a> ou{" "}
-                        <a href="https://www.linkedin.com/in/snaggleback/">
+                        </NormalLink>{" "}
+                        ou{" "}
+                        <NormalLink href="https://www.linkedin.com/in/snaggleback/">
                             LinkedIn
-                        </a>{" "}
+                        </NormalLink>{" "}
                         para saber mais sobre mim :)
                     </p>
                 </ul>
@@ -115,13 +102,3 @@ export const coollist = [
         ),
     },
 ];
-
-export const footerAtr = (
-    <>
-        <h2>Eu que fiz!</h2>
-        <p>
-            Sim HAHAHAHHA Este site foi feito por mim (Ítalo), desenvolvido para
-            testar meus conhecimentos com HTML, CSS e JAVASCRIPT (com React.js)
-        </p>
-    </>
-);
