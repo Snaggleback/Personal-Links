@@ -1,94 +1,136 @@
 import React from "react";
 
+/* 
+Classes para abrir e fechar o dropdown:
+.dev-refe-dropdown
+.dev-refe-dropdown-content
+Classes para abrir e fechar o modal:
+.dev-refe-modal
+.dev-refe-modal-content
+.dev-refe-modal-blackscreen
+*/
+
 export function Dialog({ type, children }) {
     // Adicionando o tipo de dialog aos filhos
     const typedChildren = React.Children.map(children, (child) => {
         return React.cloneElement(child, { type });
     });
 
-    // Retornando Dialog e seus filhos com o tipo
-    return <div className={`dialog ${type}`}>{typedChildren}</div>;
+    if (type === "modal") {
+        return <Modal>{typedChildren}</Modal>;
+    } else if (type === "dropdown") {
+        return <Dropdown>{typedChildren}</Dropdown>;
+    }
 }
 
 export function Trigger({ type, ...props }) {
-    // Funcionalidade de abrir e fechar o dialog
-    function toggleContent(event) {
-        if (type === "modal") {
-            // Caso seja um Modal, pega o elemento que deve ser escondido
-            const dialogHide = event.target
-                .closest(".dialog")
-                .querySelector(".blackscreen");
-            dialogHide.classList.toggle("hidden");
-            return;
-        }
-        // Caso seja um DropDown, pega o elemento que deve ser escondido
-        const dialogHide = event.target
-            .closest(".dialog")
-            .querySelector(".dialog-content");
-        // Caso o dropdown esteja aberto, fecha-o adicionando a animação
-        if (dialogHide.classList.contains("hidden") === false) {
-            // Adicionando a animação de fechar
-            dialogHide.classList.toggle("dropdown-close-animation");
-            setTimeout(() => {
-                // Removendo a classe hidden após a animação
-                dialogHide.classList.toggle("dropdown-close-animation");
-                dialogHide.classList.toggle("hidden");
-            }, 400);
-            // Retornando sem executar o resto do código
-            return;
-        }
-        // Caso o dropdown esteja fechado, abre-o
-        dialogHide.classList.toggle("hidden");
+    if (type === "dropdown") {
+        return <DropdownTrigger {...props} />;
+    } else if (type === "modal") {
+        return <ModalTrigger {...props} />;
     }
+}
 
-    // Retornando o Trigger com a função de abrir e fechar o dialog
+export function Content({ type, ...props }) {
+    if (type === "dropdown") {
+        return <DropdownContent {...props} />;
+    } else if (type === "modal") {
+        return <ModalContent {...props} />;
+    }
+}
+
+export function Dropdown(props) {
     return (
         <div
-            style={{ all: "unset" }}
-            className="dialog-open"
-            onClick={toggleContent}
+            className="dev-refe-dropdown [all:unset] [width:-webkit-fill-available]"
+            {...props}
+        />
+    );
+}
+export function DropdownContent(props) {
+    return (
+        <div
+            className="dev-refe-dropdown-content trasition-all duration-300 animate-scroll-down hidden border-4 p-5 border-[#190c2f] bg-slate-50"
             {...props}
         />
     );
 }
 
-export function Content({ type, ...props }) {
-    // Conteúdo do dialog
-    const dialogContent = <div className="dialog-content" {...props} />;
-    // Se for um modal, o conteúdo vai ficar dentro de um blackscreen
-    if (type === "modal") {
-        return <BlackScreen>{dialogContent}</BlackScreen>;
+export function DropdownTrigger(props) {
+    function toggleDropdown(event) {
+        // Caso seja um DropDown, pega o elemento que deve ser escondido
+        const dialogToToggle = event.target
+            .closest(".dev-refe-dropdown")
+            .querySelector(".dev-refe-dropdown-content");
+        // Caso o dropdown esteja aberto, fecha-o adicionando a animação
+        if (dialogToToggle.classList.contains("hidden") === false) {
+            // Adicionando a animação de fechar com um pequeno delay
+            dialogToToggle.classList.add("-translate-y-10");
+            setTimeout(() => {
+                // Removendo a classe hidden após a animação
+                dialogToToggle.classList.remove("-translate-y-10");
+                dialogToToggle.classList.add("hidden");
+            }, 200);
+            // Retornando sem executar o resto do código
+            return;
+        }
+        // Caso o dropdown esteja fechado, abre-o
+        dialogToToggle.classList.remove("hidden");
     }
-    // Se for um dropdown, clonamos o elemento e escondemos o conteúdo
-    return React.cloneElement(dialogContent, {
-        className: `${dialogContent.props.className} hidden`,
-    });
+
+    return <div className="[all:unset]" onClick={toggleDropdown} {...props} />;
 }
 
-function BlackScreen(props) {
-    // Funcionalidade de fechar o blackscreen
+export function Modal(props) {
+    return (
+        <div
+            className="dev-refe-modal [all:unset] [width:-webkit-fill-available]"
+            {...props}
+        />
+    );
+}
+export function ModalContent(props) {
     function hideBlackScreen(event) {
-        if (event.target.classList.contains("blackscreen")) {
+        if (event.target.classList.contains("dev-refe-modal-blackscreen")) {
             // Conteúdo do modal
-            const modalContent = event.target.querySelector(".dialog-content");
+            const modalContent = event.target.querySelector(
+                ".dev-refe-modal-content",
+            );
             // Setando a animação de fechamento do modal
-            modalContent.classList.add("modal-close-animation");
+            modalContent.classList.add("scale-0");
             // Esperando alguns milisegundos para que a animação seja executada
             setTimeout(() => {
                 // Adicionando a classe hidden
                 event.target.classList.add("hidden");
                 // Removendo a classe de animação
-                modalContent.classList.remove("modal-close-animation");
+                modalContent.classList.remove("scale-0");
             }, 500);
         }
     }
 
-    // Retornando o blackscreen, que já é um elemento oculto, já que iremos abrir o conteúdo
     return (
         <div
-            className="blackscreen hidden"
+            className="dev-refe-modal-blackscreen fixed w-screen h-screen top-0 right-0 bg-black/20 items-center justify-center hidden"
             onClick={hideBlackScreen}
-            {...props}
-        />
+        >
+            <div
+                className="dev-refe-modal-content max-w-[80%] max-h-[80%] w-[38rem] bg-slate-50 p-10 border-2 border-[#190c2f] animate-scale-in transition-transform duration-300 overflow-scroll shadow-pixel-lg"
+                {...props}
+            />
+        </div>
     );
+}
+
+export function ModalTrigger(props) {
+    function toggleModal(event) {
+        const dialogHide = event.target
+            .closest(".dev-refe-modal")
+            .querySelector(".dev-refe-modal-blackscreen");
+
+        if (dialogHide.classList.contains("hidden")) {
+            dialogHide.classList.remove("hidden");
+            dialogHide.classList.add("flex");
+        }
+    }
+    return <div className="[all:unset]" onClick={toggleModal} {...props} />;
 }
