@@ -89,6 +89,7 @@ export function Modal(props) {
         />
     );
 }
+
 export function ModalContent(props) {
     function hideBlackScreen(event) {
         if (event.target.classList.contains("dev-refe-modal-blackscreen")) {
