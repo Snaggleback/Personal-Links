@@ -1,15 +1,26 @@
 import React from "react";
-import { Header } from "./components/Header";
-import { LinkList, LinkButton } from "./components/LinkList";
+// Importando os ícones que serão usados no site
 import {
     FaGithub,
     FaInstagram,
     FaLinkedinIn,
     FaMastodon,
 } from "react-icons/fa6";
-import { Dialog, Trigger, Content } from "./components/Dialog";
-import "./styles/Dialog.css";
-import { coollist, profile, footerAtr } from "../info";
+// Importando os componentes que serão usados no site
+import {
+    Header,
+    LinkList,
+    LinkButton,
+    Dialog,
+    Trigger,
+    Content,
+    BigTitle
+} from "./components";
+// Importando os dados que serão usados no site
+import {
+    profile,
+    coollist,
+} from "./assets/data";
 
 export function App() {
     return (
@@ -51,9 +62,18 @@ export function App() {
                 Feito com ❤️ por{" "}
                 <Dialog type="modal">
                     <Trigger>
-                        <a href="#" className="underline">@{profile.usernames.join("@")}</a>
+                        <a href="#" className="underline">
+                            @{profile.usernames.join("@")}
+                        </a>
                     </Trigger>
-                    <Content>{footerAtr}</Content>
+                    <Content>
+                        <BigTitle>Eu que fiz!</BigTitle>
+                        <p>
+                            Sim HAHAHAHHA Este site foi feito por mim (Ítalo),
+                            desenvolvido para testar meus conhecimentos com
+                            HTML, CSS e JAVASCRIPT (com React.js e Tailwind.css)
+                        </p>
+                    </Content>
                 </Dialog>
             </footer>
         </div>

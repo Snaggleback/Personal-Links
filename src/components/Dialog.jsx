@@ -115,7 +115,7 @@ export function ModalContent(props) {
             onClick={hideBlackScreen}
         >
             <div
-                className="dev-refe-modal-content max-w-[80%] max-h-[80%] w-[38rem] bg-slate-50 p-10 border-2 border-[#190c2f] animate-scale-in transition-transform duration-300 overflow-scroll shadow-pixel-lg"
+                className="dev-refe-modal-content max-w-[80%] max-h-[80%] w-[38rem] bg-slate-50 p-10 border-2 border-[#190c2f] animate-scale-in transition-transform duration-300 overflow-scroll shadow-pixel-lg no-scrollbar text-left"
                 {...props}
             />
         </div>
