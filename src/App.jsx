@@ -13,7 +13,7 @@ import { coollist, profile, footerAtr } from "../info";
 
 export function App() {
     return (
-        <>
+        <div className="flex flex-col items-center justify-center h-screen">
             <Header />
             <LinkList>
                 {coollist.map((link, i) => {
@@ -47,15 +47,15 @@ export function App() {
                     <FaLinkedinIn />
                 </LinkButton>
             </LinkList>
-            <footer>
+            <footer className="py-6 text-center">
                 Feito com ❤️ por{" "}
                 <Dialog type="modal">
                     <Trigger>
-                        <a href="#">@{profile.usernames.join("@")}</a>
+                        <a href="#" className="underline">@{profile.usernames.join("@")}</a>
                     </Trigger>
                     <Content>{footerAtr}</Content>
                 </Dialog>
             </footer>
-        </>
+        </div>
     );
 }

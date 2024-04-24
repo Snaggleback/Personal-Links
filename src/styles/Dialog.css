@@ -1,54 +1,6 @@
-.dialog {
-    all: unset;
-    width: -webkit-fill-available;
-}
-
-.dropdown .dialog-content {
-    border: solid 4px #190c2f;
-    padding: 20px;
-    /* Animação para abrir o dropdown */
-    animation: scroll-down 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    /* Animação para fechar o dropdown */
-    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.dropdown-close-animation {
-    /* Animação para fechar o dropdown */
-    transform: scale(0);
-}
-
-.blackscreen {
-    position: fixed;
-    width: 100vw;
-    height: 100vh;
-    top: 0;
-    right: 0;
-    background: #0000003b;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 .modal .dialog-content {
-    max-width: 60%;
-    width: 500px;
-    background: white;
-    padding: 40px;
-    border: solid 2px #190c2f;
-    max-height: 80%;
-    height: auto;
-    text-align: left;
     box-shadow: 16px 16px 0 0 #190c2f;
-    /* Animação para abrir o modal */
-    animation: scale-in 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    /* Animação para fechar o modal */
-    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     overflow: scroll;
-}
-
-.modal-close-animation {
-    /* Animação para fechar o modal */
-    transform: scale(0);
 }
 
 .modal .dialog-content h2 {
@@ -66,26 +18,4 @@
 
 .dialog-content a::before {
     content: "🔗 ";
-}
-
-/* Animação para abrir o modal */
-@keyframes scale-in {
-    0% {
-        -webkit-transform: scale(0);
-        transform: scale(0);
-    }
-    100% {
-        -webkit-transform: scale(1);
-        transform: scale(1);
-    }
-}
-
-/* Animação para abrir o dropdown */
-@keyframes scroll-down {
-    0% {
-        transform: translateY(-20%);
-    }
-    100% {
-        transform: translateY(0);
-    }
 }

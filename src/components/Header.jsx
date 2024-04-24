@@ -1,16 +1,15 @@
 import { profile } from "../../info";
 import profileimage from "../assets/profileimage.png";
-import "../styles/Header.css";
 
 export function Header() {
     return (
-        <header>
-            <div className="profile">
+        <header className="w-full max-w-4xl pt-10">
+            <div className="flex flex-col items-center">
                 <img src={profileimage} alt={profile.imagedesc} />
-                <div className="usernames">
+                <div>
                     @{profile.usernames.join("@")} ({profile.name})
                 </div>
-                <div className="desc">{profile.desc}</div>
+                <div className="italic">{profile.desc}</div>
             </div>
         </header>
     );
