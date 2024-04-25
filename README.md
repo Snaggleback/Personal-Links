@@ -1,10 +1,6 @@
-<div style="text-align: center;">
-
 # @Snaggleback@TheSnaggleback (Ítalo)
 
 Olá! Eu sou o @Snaggleback, mas você também pode me chamar de Ítalo. Sou um entusiasta da programação, apaixonado por explorar novas tecnologias e criar projetos interessantes
-
-</div>
 
 ## Tecnologias e Ferramentas
 
