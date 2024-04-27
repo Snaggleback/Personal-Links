@@ -25,7 +25,7 @@ export function CoolButton({ href = "#", ...props }) {
 
 export function MediaList(props) {
     return (
-        <div className="max-w-[400px] w-full my-10 text-[#190c2f]">
+        <div className="max-w-[400px] w-full my-6 text-[#190c2f]">
             <ul className="flex justify-evenly" {...props}></ul>
         </div>
     );
