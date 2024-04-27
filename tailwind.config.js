@@ -29,8 +29,8 @@ export default {
             },
             boxShadow: {
                 "pixel-lg": "16px 16px 0 0 #190c2f",
+                "pixel-sm": "8px 8px 0 0 #190c2f",
             },
-
             fontFamily: {
                 "open-sans": ["Open Sans", "sans-serif"],
             }
