@@ -1,5 +1,4 @@
-import profile from "../assets/data/profile";
-import profileImagePNG from "../assets/profile.png";
+import { profile, profileImagePNG } from "../assets";
 
 export function Header() {
     return (

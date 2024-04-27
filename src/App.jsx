@@ -19,7 +19,7 @@ import {
     BigTitle,
 } from "./components";
 // Importando os dados que serão usados no site
-import { profile, coollist } from "./assets/data";
+import { profile, coollist } from "./assets";
 
 export function App() {
     return (
