@@ -40,7 +40,14 @@ export default [
                     desenvolvimento, programação e tecnologia em geral.
                 </p>
                 <br />
-                <p>HEHEH</p>
+                <iframe
+                    className="w-full aspect-video"
+                    src="https://www.youtube-nocookie.com/embed/videoseries?si=9V7hmLyycfDNc5Mm&amp;controls=0&amp;list=PLG77rut17t6wTxjhhb-iF_5dRdqGt9ZT8"
+                    title="Reprodutor de vídeos do YouTube"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    allowFullScreen
+                ></iframe>
                 <br />
                 <p>
                     Acesse no{" "}
