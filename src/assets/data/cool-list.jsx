@@ -15,7 +15,7 @@ export default [
         type: "dropdown",
         content: (
             <>
-                <h2>Sobre:</h2>
+                <BigTitle className="text-sm">Sobre:</BigTitle>
                 <p>
                     Repositórios Utilizados para Estudo e Aquisição de
                     Conhecimento em Tecnologia (em Geral)
@@ -60,7 +60,7 @@ export default [
                 <p>
                     <em>Sou um carinha simples e programo por hobbie</em>
                 </p>
-                <h3 className="text-sm font-bold py-2">Um pouco sobre mim</h3>
+                <h2 className="text-sm font-bold py-2">Um pouco sobre mim</h2>
                 <ul className="list-disc px-6">
                     <li>
                         Me chamo Ítalo, muito prazer! Tenho 16 anos e sou um
