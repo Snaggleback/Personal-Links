@@ -50,7 +50,7 @@ export function Dropdown(props) {
 export function DropdownContent(props) {
     return (
         <div
-            className="dev-refe-dropdown-content trasition-all duration-300 animate-scroll-down hidden border-4 p-5 border-[#190c2f] bg-slate-50"
+            className="dev-refe-dropdown-content trasition-all duration-500 animate-scroll-down hidden border-4 p-5 border-[#190c2f] bg-slate-50"
             {...props}
         />
     );
@@ -58,17 +58,19 @@ export function DropdownContent(props) {
 
 export function DropdownTrigger(props) {
     function toggleDropdown(event) {
-        // Caso seja um DropDown, pega o elemento que deve ser escondido
         const dialogToToggle = event.target
             .closest(".dev-refe-dropdown")
             .querySelector(".dev-refe-dropdown-content");
-        // Caso o dropdown esteja aberto, fecha-o adicionando a animação
-        if (dialogToToggle.classList.contains("hidden") === false) {
+
+        const isOpenDropDown =
+            dialogToToggle.classList.contains("hidden") === false;
+
+        if (isOpenDropDown) {
             // Adicionando a animação de fechar com um pequeno delay
-            dialogToToggle.classList.add("-translate-y-10");
+            dialogToToggle.classList.add("-translate-y-[100%]");
             setTimeout(() => {
                 // Removendo a classe hidden após a animação
-                dialogToToggle.classList.remove("-translate-y-10");
+                dialogToToggle.classList.remove("-translate-y-[100%]");
                 dialogToToggle.classList.add("hidden");
             }, 200);
             // Retornando sem executar o resto do código
@@ -92,7 +94,10 @@ export function Modal(props) {
 
 export function ModalContent(props) {
     function hideBlackScreen(event) {
-        if (event.target.classList.contains("dev-refe-modal-blackscreen")) {
+        const isBlackScreenArea = event.target.classList.contains(
+            "dev-refe-modal-blackscreen",
+        );
+        if (isBlackScreenArea) {
             // Conteúdo do modal
             const modalContent = event.target.querySelector(
                 ".dev-refe-modal-content",
@@ -128,7 +133,9 @@ export function ModalTrigger(props) {
             .closest(".dev-refe-modal")
             .querySelector(".dev-refe-modal-blackscreen");
 
-        if (dialogHide.classList.contains("hidden")) {
+        const isOpenModal = dialogHide.classList.contains("hidden") === true;
+
+        if (isOpenModal) {
             dialogHide.classList.remove("hidden");
             dialogHide.classList.add("flex");
         }
