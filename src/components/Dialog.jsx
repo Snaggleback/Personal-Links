@@ -50,7 +50,7 @@ export function Dropdown(props) {
 export function DropdownContent(props) {
     return (
         <div
-            className="dev-refe-dropdown-content trasition-all duration-500 animate-scroll-down hidden border-4 p-5 border-[#190c2f] bg-slate-50"
+            className="dev-refe-dropdown-content trasition-all duration-500 animate-scroll-down hidden border-4 p-5 border-dog-blue dark:border-zinc-300"
             {...props}
         />
     );
@@ -110,17 +110,17 @@ export function ModalContent(props) {
                 event.target.classList.add("hidden");
                 // Removendo a classe de animação
                 modalContent.classList.remove("scale-0");
-            }, 500);
+            }, 400);
         }
     }
 
     return (
         <div
-            className="dev-refe-modal-blackscreen fixed w-screen h-screen top-0 right-0 bg-black/20 items-center justify-center hidden"
+            className="dev-refe-modal-blackscreen fixed w-screen h-screen top-0 right-0 bg-black/20 dark:bg-white/20 items-center justify-center hidden"
             onClick={hideBlackScreen}
         >
             <div
-                className="dev-refe-modal-content max-w-[80%] max-h-[80%] w-[38rem] bg-slate-50 p-10 border-2 border-[#190c2f] animate-scale-in transition-transform duration-300 overflow-scroll shadow-pixel-lg no-scrollbar text-left"
+                className="dev-refe-modal-content max-w-[80%] max-h-[80%] w-[38rem] bg-slate-50 dark:bg-slate-800 p-10 border-2 border-dog-blue shadow-dog-blue dark:shadow-zinc-300 dark:border-zinc-200 animate-scale-in transition-transform duration-300 overflow-scroll shadow-pixel-lg no-scrollbar text-left"
                 {...props}
             />
         </div>

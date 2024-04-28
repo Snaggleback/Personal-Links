@@ -17,6 +17,7 @@ import {
     Dialog,
     Trigger,
     Content,
+    ToggleTheme
 } from "./components";
 // Importando os dados que serão usados no site
 import { listOfBlockLinks } from "./assets";
@@ -24,6 +25,7 @@ import { listOfBlockLinks } from "./assets";
 export function App() {
     return (
         <main className="flex flex-col items-center justify-center">
+            <ToggleTheme />
             <Header />
             <CoolList>
                 {listOfBlockLinks.map((link, i) => {
