@@ -1,5 +1,5 @@
 import { Dialog, Trigger, Content, BigTitle } from "./";
-import { profile } from "../assets";
+import { profileInformation } from "../assets";
 
 export function Footer() {
     return (
@@ -8,7 +8,7 @@ export function Footer() {
             <Dialog type="modal">
                 <Trigger>
                     <a href="#" className="underline">
-                        @{profile.usernames.join("@")}
+                        @{profileInformation.usernames.join("@")}
                     </a>
                 </Trigger>
                 <Content>

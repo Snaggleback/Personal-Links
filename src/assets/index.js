@@ -1,3 +1,3 @@
-export { default as profile } from "./data/profile";
-export { default as coolList } from "./data/cool-list";
+export { default as profileInformation } from "./data/profileInformation";
+export { default as listOfBlockLinks } from "./data/blockLinks";
 export { default as profileImagePNG } from "./profile.png";

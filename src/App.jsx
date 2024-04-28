@@ -19,14 +19,14 @@ import {
     Content,
 } from "./components";
 // Importando os dados que serão usados no site
-import { coolList } from "./assets";
+import { listOfBlockLinks } from "./assets";
 
 export function App() {
     return (
-        <div className="flex flex-col items-center justify-center">
+        <main className="flex flex-col items-center justify-center">
             <Header />
             <CoolList>
-                {coolList.map((link, i) => {
+                {listOfBlockLinks.map((link, i) => {
                     return link.type ? (
                         <Dialog type={link.type} key={i}>
                             <Trigger>
@@ -43,23 +43,21 @@ export function App() {
                     );
                 })}
             </CoolList>
-            {
-                <MediaList>
-                    <MediaButton href="https://www.instagram.com/snaggleback/">
-                        <FaInstagram />
-                    </MediaButton>
-                    <MediaButton href="https://github.com/Snaggleback/">
-                        <FaGithub />
-                    </MediaButton>
-                    <MediaButton href="https://mastodon.social/@Snaggleback">
-                        <FaMastodon />
-                    </MediaButton>
-                    <MediaButton href="https://www.linkedin.com/in/snaggleback/">
-                        <FaLinkedinIn />
-                    </MediaButton>
-                </MediaList>
-            }
+            <MediaList>
+                <MediaButton href="https://www.instagram.com/snaggleback/">
+                    <FaInstagram />
+                </MediaButton>
+                <MediaButton href="https://github.com/Snaggleback/">
+                    <FaGithub />
+                </MediaButton>
+                <MediaButton href="https://mastodon.social/@Snaggleback">
+                    <FaMastodon />
+                </MediaButton>
+                <MediaButton href="https://www.linkedin.com/in/snaggleback/">
+                    <FaLinkedinIn />
+                </MediaButton>
+            </MediaList>
             <Footer />
-        </div>
+        </main>
     );
 }
