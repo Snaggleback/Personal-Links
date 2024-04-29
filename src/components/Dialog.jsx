@@ -1,4 +1,4 @@
-import React from "react";
+import { cloneElement, Children } from "react";
 
 /* 
 Classes para abrir e fechar o dropdown:
@@ -12,8 +12,8 @@ Classes para abrir e fechar o modal:
 
 export function Dialog({ type, children }) {
     // Adicionando o tipo de dialog aos filhos
-    const typedChildren = React.Children.map(children, (child) => {
-        return React.cloneElement(child, { type });
+    const typedChildren = Children.map(children, (child) => {
+        return cloneElement(child, { type });
     });
 
     if (type === "modal") {

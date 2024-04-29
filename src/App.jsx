@@ -1,4 +1,3 @@
-import React from "react";
 // Importando os ícones que serão usados no site
 import {
     FaGithub,

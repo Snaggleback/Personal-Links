@@ -1,4 +1,4 @@
-import React from "react";
+import { cloneElement } from "react";
 
 export function CoolList(props) {
     return (
@@ -8,7 +8,7 @@ export function CoolList(props) {
     );
 }
 
-export function CoolButton({ href = "#", ...props }) {
+export function CoolButton({ href, ...props }) {
     return (
         <li className="w-full">
             <a
@@ -34,7 +34,7 @@ export function MediaButton({ children, ...props }) {
     return (
         <li>
             <a className="block" {...props}>
-                {React.cloneElement(children, { className: "size-6" })}
+                {cloneElement(children, { className: "size-6" })}
             </a>
         </li>
     );

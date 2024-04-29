@@ -6,6 +6,8 @@ export function Header() {
             <div className="flex flex-col items-center">
                 <img
                     src={profileImagePNG}
+                    width={200}
+                    height={200}
                     alt={profileInformation.image_description}
                 />
                 <div>
