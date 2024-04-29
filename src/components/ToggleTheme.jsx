@@ -1,23 +1,25 @@
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
 import { TbSunFilled, TbMoonFilled } from "react-icons/tb";
 
 export function ToggleTheme() {
     const [theme, setTheme] = useState(localStorage.theme || "light");
 
-    function toggleCurrentTheme() {
-        if (localStorage.theme === "dark") {
-            document.documentElement.classList.remove("dark");
-            localStorage.theme = "light";
-        } else {
+    useEffect(() => {
+        if (theme === "dark") {
             document.documentElement.classList.add("dark");
-            localStorage.theme = "dark";
+        } else {
+            document.documentElement.classList.remove("dark");
         }
-        setTheme(localStorage.theme);
+        localStorage.theme = theme;
+    }, [theme]);
+
+    function toggleCurrentTheme() {
+        setTheme((prevTheme) => (prevTheme === "dark" ? "light" : "dark"));
     }
 
     return (
-        <div id="toggle-theme" className="absolute top-5 right-5 p-4">
-            <button id="toggle-theme-icon" onClick={toggleCurrentTheme}>
+        <div className="absolute top-5 right-5 p-4">
+            <button onClick={toggleCurrentTheme}>
                 {theme === "dark" ? (
                     <TbSunFilled className="size-7 text-zinc-200" />
                 ) : (
@@ -35,5 +37,7 @@ export function setThemeLocal() {
 
     if (localStorage.theme === "dark") {
         document.documentElement.classList.add("dark");
+    } else {
+        document.documentElement.classList.remove("dark");
     }
 }
