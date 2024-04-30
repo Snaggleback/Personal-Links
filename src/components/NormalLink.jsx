@@ -1,7 +1,10 @@
 export function NormalLink({ children, ...props }) {
     return (
         <a className="underline" {...props}>
-            🔗 {children}
+            <span role="img" aria-label="link">
+                🔗
+            </span>{" "}
+            {children}
         </a>
     );
 }

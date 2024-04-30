@@ -1,4 +1,4 @@
-import { cloneElement, Children } from "react";
+import React from "react";
 
 /* 
 Classes para abrir e fechar o dropdown:
@@ -12,30 +12,30 @@ Classes para abrir e fechar o modal:
 
 export function Dialog({ type, children }) {
     // Adicionando o tipo de dialog aos filhos
-    const typedChildren = Children.map(children, (child) => {
-        return cloneElement(child, { type });
+    const typedChildren = React.Children.map(children, (child) => {
+        return React.cloneElement(child, { type });
     });
 
     if (type === "modal") {
         return <Modal>{typedChildren}</Modal>;
-    } else if (type === "dropdown") {
+    } else {
         return <Dropdown>{typedChildren}</Dropdown>;
     }
 }
 
 export function Trigger({ type, ...props }) {
-    if (type === "dropdown") {
-        return <DropdownTrigger {...props} />;
-    } else if (type === "modal") {
+    if (type === "modal") {
         return <ModalTrigger {...props} />;
+    } else {
+        return <DropdownTrigger {...props} />;
     }
 }
 
 export function Content({ type, ...props }) {
-    if (type === "dropdown") {
-        return <DropdownContent {...props} />;
-    } else if (type === "modal") {
+    if (type === "modal") {
         return <ModalContent {...props} />;
+    } else {
+        return <DropdownContent {...props} />;
     }
 }
 
@@ -93,22 +93,20 @@ export function Modal(props) {
 }
 
 export function ModalContent(props) {
-    function hideBlackScreen(event) {
-        const isBlackScreenArea = event.target.classList.contains(
+    function hideModal(event) {
+        const isAreaToClose = event.target.classList.contains(
             "dev-refe-modal-blackscreen",
         );
-        if (isBlackScreenArea) {
-            // Conteúdo do modal
+        if (isAreaToClose) {
             const modalContent = event.target.querySelector(
                 ".dev-refe-modal-content",
             );
-            // Setando a animação de fechamento do modal
+            // Setando a animação de fechamento ("inicial") do modal
             modalContent.classList.add("scale-0");
             // Esperando alguns milisegundos para que a animação seja executada
             setTimeout(() => {
-                // Adicionando a classe hidden
+                // Adicionando a classe hidden e removendo a animação
                 event.target.classList.add("hidden");
-                // Removendo a classe de animação
                 modalContent.classList.remove("scale-0");
             }, 400);
         }
@@ -117,7 +115,7 @@ export function ModalContent(props) {
     return (
         <div
             className="dev-refe-modal-blackscreen fixed w-screen h-screen top-0 right-0 bg-black/20 dark:bg-white/20 items-center justify-center hidden"
-            onClick={hideBlackScreen}
+            onClick={hideModal}
         >
             <div
                 className="dev-refe-modal-content max-w-[80%] max-h-[80%] w-[38rem] bg-slate-50 dark:bg-slate-800 p-10 border-2 border-dog-blue shadow-dog-blue dark:shadow-zinc-300 dark:border-zinc-200 animate-scale-in transition-transform duration-300 overflow-scroll shadow-pixel-lg no-scrollbar text-left"
@@ -128,17 +126,13 @@ export function ModalContent(props) {
 }
 
 export function ModalTrigger(props) {
-    function toggleModal(event) {
+    function showModal(event) {
         const dialogHide = event.target
             .closest(".dev-refe-modal")
             .querySelector(".dev-refe-modal-blackscreen");
 
-        const isOpenModal = dialogHide.classList.contains("hidden") === true;
-
-        if (isOpenModal) {
-            dialogHide.classList.remove("hidden");
-            dialogHide.classList.add("flex");
-        }
+        dialogHide.classList.remove("hidden");
+        dialogHide.classList.add("flex");
     }
-    return <div className="[all:unset]" onClick={toggleModal} {...props} />;
+    return <div className="[all:unset]" onClick={showModal} {...props} />;
 }
